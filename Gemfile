@@ -14,6 +14,8 @@ group :development, :test do
   gem 'rspec'
 end
 
+gem 'ruby-progressbar'
+
 # EXAMPLES of Git gems syntax
 # gem "zipruby-compat", :require => 'zipruby', :git => "https://github.com/jawspeak/zipruby-compatibility-with-rubyzip-fork.git", :tag => "v0.3.7"
 # gem "docx_templater", :git => "https://github.com/jawspeak/ruby-docx-templater.git" 
