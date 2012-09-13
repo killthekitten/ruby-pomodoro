@@ -1,1 +1,1 @@
-# require <top-level module>
+require 'pomodoro'
