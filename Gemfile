@@ -1,6 +1,7 @@
 source :rubygems
 
 group :development do
+  gem 'cucumber'
   gem 'pry'
   gem 'guard'
   gem 'rb-fsevent'
