@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # For a simple Ruby library or Gem, Gemfile.lock should not be under
 # version control. 
 #
@@ -21,3 +22,23 @@ Gemfile.lock
 .redcar
 .yardoc
 
+=======
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+>>>>>>> 40a911b04caae6497715ed87c14efd32ce5e3653
