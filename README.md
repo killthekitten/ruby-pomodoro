@@ -1,26 +1,19 @@
-# Ruby Project template with RSpec, Cucumber and Guard
+Ruby-Pomodoro
+===
 
-This is a template that you can use to bootstrap a new ruby project. It
-contains hello-world features and specs adapted from the 
-[http://pragprog.com/book/achbd/the-rspec-book](RSpec Book).
+`Ruby-Pomodoro` aims to create a commandline timer for use with the [ Pomodoro Technique ](http://www.pomodorotechnique.com/)
 
-## Getting started
+RoadMap
+====
+- Setting up a reliable timer with Ruby-Progressbar
+- Integrating Growl Notifications, as well as allowing customization of those time warnings.
+- Allowing output to be integrated with TaskWarrior as an 'annotate' function to a given task.
 
-1. If using RVM, edit the .rvmrc file to suit your project requirements.
-2. Install bundler: `gem install bundler`
-3. Install guard `gem install guard`
-4. Install dependencies: `bundler install`
-5. Launch guard: `guard start`
+Installation
+====
+*Still in development*
 
-Guard will run rspec and cucumber against some "hello world" specs and
-features that will verify that these are tools are correctly
-installed. After this runs, you can remove the hello-world spec and
-features.
-
-Guard will also continuously watch the Gemfile and will re-run bundler
-if it changes. 
-
-You should start developing your classes and modules in the lib directory
-and any scripts or other excutable artefacts in the bin directory.
-
-Good luck!
+License
+===
+MIT License for Code
+Pomodoro Technique remains copy protected through the usual means.
