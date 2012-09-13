@@ -3,7 +3,7 @@ require 'growl'
 
 class Pomodoro
 
-  def initialize(options)
+  def initialize(*options)
     @t = Time.now
     @end_time = options[:length] || Time.now + 1500 # seconds in 25 min
     @a = ProgressBar.create(:total => 1500, :format => '%t %a |%b>>%i| %p%%')
