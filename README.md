@@ -16,4 +16,5 @@ Installation
 License
 ===
 MIT License for Code
+
 Pomodoro Technique remains copy protected through the usual means.
