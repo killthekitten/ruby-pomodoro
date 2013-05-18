@@ -4,17 +4,20 @@ require 'growl'
 class Pomodoro
 
   def initialize(options)
+    options[:length] = 1500 if options[:length] == 0
     @t = Time.now
-    @end_time = Time.now + options[:length] || Time.now + 1500 # seconds in 25 min
+    @end_time = Time.now + options[:length]
     @a = ProgressBar.create(:total => options[:length], :format => '%t %a |%b>>%i| %p%%')
     @seconds_elapsed = 0
-    @interval = 5
+    @interval = 1
   end
 
   def start
     while Time.now < @end_time
+      trap_interrupt
       @a.refresh
-      sleep @interval && @seconds_elapsed += @interval
+      sleep @interval #&&
+      @seconds_elapsed += @interval
       case @seconds_elapsed
       when 10
         # Good luck warning
@@ -27,7 +30,7 @@ class Pomodoro
         Growl.notify_warning "1 minute warning"
       end
 
-      @a.increment = 5
+      @interval.times { @a.increment }
 
     end
 
@@ -47,6 +50,15 @@ class Pomodoro
     end
 
   end # start
+  
+  def trap_interrupt
+    Signal.trap('INT') do
+      exit!(1) if @wants_to_quit
+      @wants_to_quit = true
+      $stderr.puts
+      $stderr.puts 'Exiting... Interrupt again to exit immediately.'
+    end
+  end
 
 # TODO
 # - integrate growl notifications for each 5 min passed? or 10 and 5 min remaining?
@@ -57,7 +69,14 @@ class Pomodoro
 
 end
 
+def usage
+  $stderr.puts <<-USAGE
+ruby-pomodoro:
+>$ ruby  #{__FILE__.sub(/.rb$/,'')} <SECONDS>
+    USAGE
+  $stderr.puts 'You did not have Growl installed!' unless Growl.installed?
+end
+
 if File.identical?(__FILE__, $0)
-  a = Pomodoro.new(:length => ARGV[0].dup.to_i)
-  a.start
+  ARGV[0]== '-h' ? usage : Pomodoro.new(length: ARGV[0].to_i).start
 end
